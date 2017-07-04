@@ -16,14 +16,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         final EditText enterTest = (EditText) findViewById(R.id.enter_text_view_main_activity);
-        Button submitButton = (Button) findViewById(R.id.submit_button_main_activity);
+        final Button submitButton = (Button) findViewById(R.id.submit_button_main_activity);
         final TextView outputView = (TextView) findViewById(R.id.output_view_main_activity);
 
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String text = enterTest.getText().toString();
-                int wordCount = WordCounter.count(text);
+                final String text = enterTest.getText().toString();
+                final int wordCount = WordCounter.count(text);
                 outputView.setText(Integer.toString(wordCount));
             }
         });
