@@ -67,4 +67,12 @@ public class WordCounterTest {
         assertEquals(expectedOccurrenceHash.get("three"), WordCounter.getOccurrenceHash(words).get("three"));
         assertEquals(expectedOccurrenceHash.get("four"), WordCounter.getOccurrenceHash(words).get("four"));
     }
+
+    @Test
+    public void canFormatOccurrenceHashResults(){
+        String words = "one one two one two three one two three four";
+        String expected = "one: 4, two: 3, three: 2, four: 1";
+        HashMap<String, Integer> occurrenceHash = WordCounter.getOccurrenceHash(words);
+        assertEquals(expected, WordCounter.formatOccurrenceHash(occurrenceHash));
+    }
 }

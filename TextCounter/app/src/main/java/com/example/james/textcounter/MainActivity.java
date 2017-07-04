@@ -7,24 +7,33 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.util.HashMap;
+
 public class MainActivity extends AppCompatActivity {
+
+    private EditText enterText;
+    private TextView outputView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final EditText enterTest = (EditText) findViewById(R.id.enter_text_view_main_activity);
-        final Button countButton = (Button) findViewById(R.id.count_button_main_activity);
-        final TextView outputView = (TextView) findViewById(R.id.output_view_main_activity);
+        enterText = (EditText) findViewById(R.id.enter_text_view_main_activity);
+        outputView = (TextView) findViewById(R.id.output_view_main_activity);
 
-        countButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final String text = enterTest.getText().toString();
-                final int wordCount = WordCounter.count(text);
-                outputView.setText(Integer.toString(wordCount));
-            }
-        });
+    }
+
+    public void onClickCountButton(View view){
+        final String text = enterText.getText().toString();
+        final int wordCount = WordCounter.count(text);
+        outputView.setText(Integer.toString(wordCount));
+    }
+
+    public void onClickOccurrenceButton(View view){
+        final String text = enterText.getText().toString();
+        final HashMap<String, Integer> wordOccurrenceHash = WordCounter.getOccurrenceHash(text);
+        final String wordOccurrenceText = WordCounter.formatOccurrenceHash(wordOccurrenceHash);
+        outputView.setText(wordOccurrenceText);
     }
 }
