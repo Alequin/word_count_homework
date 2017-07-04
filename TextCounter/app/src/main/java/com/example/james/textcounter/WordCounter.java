@@ -48,16 +48,33 @@ public class WordCounter {
     public static String formatOccurrenceHash(HashMap<String, Integer> occurrenceHash) {
         final String[] keys = occurrenceHash.keySet().toArray(new String[1]);
         final Integer[] values = occurrenceHash.values().toArray(new Integer[1]);
+        final String[] segments = new String[keys.length];
 
-        String result = "";
-        final int length = keys.length;
+        final int length = segments.length;
         for(int j=0; j < length; j++){
-            String count = Integer.toString(values[j]);
-            result += keys[j] +": " + count;
-            if(j < length-1){
-                result += ", ";
-            }
+            final String val = Integer.toString(values[j]);
+            segments[j] = keys[j] + ": " + val;
         }
-        return result;
+
+
+    }
+
+    private String[] sortOccurrenceSegmentsArray(String[] segments){
+
+        boolean sorted = false;
+        while(!sorted){
+
+        }
+    }
+
+    private int getSegmentValue(String segment){
+        final int valueIndex = segment.length()-1;
+        final char charValue = segment.charAt(valueIndex);
+        String value = Character.toString(charValue);
+        return Integer.parseInt(value);
+    }
+
+    private String[] swapIndeces(String[] array, int index1, int index2){
+        
     }
 }
