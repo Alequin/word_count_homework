@@ -48,15 +48,26 @@ public class WordCounter {
     public static String formatOccurrenceHash(HashMap<String, Integer> occurrenceHash) {
         final String[] keys = occurrenceHash.keySet().toArray(new String[1]);
         final Integer[] values = occurrenceHash.values().toArray(new Integer[1]);
-        final String[] segments = new String[keys.length];
+        String[] segments = new String[keys.length];
 
         final int length = segments.length;
+
         for(int j=0; j < length; j++){
             final String val = Integer.toString(values[j]);
             segments[j] = keys[j] + ": " + val;
         }
 
         segments = sortOccurrenceSegmentsArray(segments);
+
+        String results = "";
+        for(int j=0; j < length; j++){
+            results += segments[j];
+            if(j < length-1){
+                results += ", ";
+            }
+        }
+
+        return results;
     }
 
     private static String[] sortOccurrenceSegmentsArray(String[] segments){
@@ -84,7 +95,7 @@ public class WordCounter {
         return Integer.parseInt(value);
     }
 
-    private static String[] swapIndeces(String[] array, int index1, int index2){
+    private static void swapIndeces(String[] array, int index1, int index2){
         String temp = array[index1];
         array[index1] = array[index2];
         array[index2] = temp;
