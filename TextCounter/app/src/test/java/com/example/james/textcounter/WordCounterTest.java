@@ -1,7 +1,6 @@
 package com.example.james.textcounter;
 
 import org.junit.Test;
-import org.junit.Before;
 
 import java.util.HashMap;
 
