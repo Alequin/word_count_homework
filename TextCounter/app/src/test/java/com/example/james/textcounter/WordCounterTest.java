@@ -17,4 +17,9 @@ public class WordCounterTest {
         assertEquals(10, WordCounter.count(words));
     }
 
+    @Test
+    public void countWordsWhenLengthZero(){
+        assertEquals(0, WordCounter.count(""));
+    }
+
 }
