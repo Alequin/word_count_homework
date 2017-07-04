@@ -1,5 +1,6 @@
 package com.example.james.textcounter;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.HashMap;
@@ -11,6 +12,17 @@ import static org.junit.Assert.*;
  */
 
 public class WordCounterTest {
+
+    private HashMap<String, Integer> expectedOccurrenceHash;
+
+    @Before
+    public void setup(){
+        expectedOccurrenceHash = new HashMap<>();
+        expectedOccurrenceHash.put("one", 4);
+        expectedOccurrenceHash.put("two", 3);
+        expectedOccurrenceHash.put("three", 2);
+        expectedOccurrenceHash.put("four", 1);
+    }
 
     @Test
     public void canCountWords(){
@@ -32,29 +44,18 @@ public class WordCounterTest {
     public void canCountOccurrenceOfWords() {
         String words = "one one two one two three one two three four";
         //loved that and when dog said hi
-        HashMap<String, Integer> expected = new HashMap<>();
-        expected.put("one", 4);
-        expected.put("two", 3);
-        expected.put("three", 2);
-        expected.put("four", 1);
-        assertEquals(expected.get("one"), WordCounter.getOccurrenceHash(words).get("one"));
-        assertEquals(expected.get("two"), WordCounter.getOccurrenceHash(words).get("two"));
-        assertEquals(expected.get("three"), WordCounter.getOccurrenceHash(words).get("three"));
-        assertEquals(expected.get("four"), WordCounter.getOccurrenceHash(words).get("four"));
+        assertEquals(expectedOccurrenceHash.get("one"), WordCounter.getOccurrenceHash(words).get("one"));
+        assertEquals(expectedOccurrenceHash.get("two"), WordCounter.getOccurrenceHash(words).get("two"));
+        assertEquals(expectedOccurrenceHash.get("three"), WordCounter.getOccurrenceHash(words).get("three"));
+        assertEquals(expectedOccurrenceHash.get("four"), WordCounter.getOccurrenceHash(words).get("four"));
     }
 
     @Test
     public void canCountOccurrenceOfWordsWithExtraCharacters() {
         String words = "one one. two one, two three one' two three four";
-        //loved that and when dog said hi
-        HashMap<String, Integer> expected = new HashMap<>();
-        expected.put("one", 4);
-        expected.put("two", 3);
-        expected.put("three", 2);
-        expected.put("four", 1);
-        assertEquals(expected.get("one"), WordCounter.getOccurrenceHash(words).get("one"));
-        assertEquals(expected.get("two"), WordCounter.getOccurrenceHash(words).get("two"));
-        assertEquals(expected.get("three"), WordCounter.getOccurrenceHash(words).get("three"));
-        assertEquals(expected.get("four"), WordCounter.getOccurrenceHash(words).get("four"));
+        assertEquals(expectedOccurrenceHash.get("one"), WordCounter.getOccurrenceHash(words).get("one"));
+        assertEquals(expectedOccurrenceHash.get("two"), WordCounter.getOccurrenceHash(words).get("two"));
+        assertEquals(expectedOccurrenceHash.get("three"), WordCounter.getOccurrenceHash(words).get("three"));
+        assertEquals(expectedOccurrenceHash.get("four"), WordCounter.getOccurrenceHash(words).get("four"));
     }
 }
