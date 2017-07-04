@@ -7,6 +7,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.util.HashMap;
+
 public class MainActivity extends AppCompatActivity {
 
     private EditText enterText;

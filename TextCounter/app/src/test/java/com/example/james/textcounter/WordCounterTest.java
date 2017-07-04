@@ -73,6 +73,6 @@ public class WordCounterTest {
         String words = "one one two one two three one two three four";
         String expected = "one: 4, two: 3, three: 2, four: 1";
         HashMap<String, Integer> occurrenceHash = WordCounter.getOccurrenceHash(words);
-        assertEquals(expected, WordCounter.formatOccurenceHash(occurrenceHash));
+        assertEquals(expected, WordCounter.formatOccurrenceHash(occurrenceHash));
     }
 }
