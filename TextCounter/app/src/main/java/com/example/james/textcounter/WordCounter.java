@@ -41,6 +41,4 @@ public class WordCounter {
         }
         return string.substring(0, indexToKeep);
     }
-
-
 }

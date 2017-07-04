@@ -58,4 +58,13 @@ public class WordCounterTest {
         assertEquals(expectedOccurrenceHash.get("three"), WordCounter.getOccurrenceHash(words).get("three"));
         assertEquals(expectedOccurrenceHash.get("four"), WordCounter.getOccurrenceHash(words).get("four"));
     }
+
+    @Test
+    public void canCountOccurrenceOfWordsIgnoresCase() {
+        String words = "oNe One. Two onE, tWo thREe oNe' tWo tHree fOur";
+        assertEquals(expectedOccurrenceHash.get("one"), WordCounter.getOccurrenceHash(words).get("one"));
+        assertEquals(expectedOccurrenceHash.get("two"), WordCounter.getOccurrenceHash(words).get("two"));
+        assertEquals(expectedOccurrenceHash.get("three"), WordCounter.getOccurrenceHash(words).get("three"));
+        assertEquals(expectedOccurrenceHash.get("four"), WordCounter.getOccurrenceHash(words).get("four"));
+    }
 }
