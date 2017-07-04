@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">TextCounter</string>
+    <string name="enter_text_hint">Enter Text Here</string>
+    <string name="submit_button">Submit</string>
 </resources>
