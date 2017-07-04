@@ -31,6 +31,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickOccurrenceButton(View view){
-
+        final String text = enterText.getText().toString();
+        final HashMap<String, Integer> wordOccurrenceHash = WordCounter.getOccurrenceHash(text);
+        final String wordOccurrenceText = WordCounter.formatOccurrenceHash(wordOccurrenceHash);
+        outputView.setText(wordOccurrenceText);
     }
 }
