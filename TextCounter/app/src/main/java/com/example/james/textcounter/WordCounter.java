@@ -19,13 +19,8 @@ public class WordCounter {
         HashMap<String, Integer> occurrenceHash = new HashMap<>();
         final String[] words = phrase.split(" ");
         for(String word : words){
-            Integer currentCount = occurrenceHash.get(word);
-            if(currentCount != null){
-                currentCount++;
-                occurrenceHash.put(word, currentCount);
-            }else{
-                occurrenceHash.put(word, 1);
-            }
+            int count = occurrenceHash.get(word) != null ? (occurrenceHash.get(word) + 1) : 1;
+            occurrenceHash.put(word, count);
         }
         return occurrenceHash;
     }
