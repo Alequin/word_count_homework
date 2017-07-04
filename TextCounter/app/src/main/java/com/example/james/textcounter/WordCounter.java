@@ -21,10 +21,25 @@ public class WordCounter {
         HashMap<String, Integer> occurrenceHash = new HashMap<>();
         final String[] words = phrase.split(" ");
         for(String word : words){
+            word = removeNonLetterFromEnd(word);
             int count = occurrenceHash.get(word) != null ? (occurrenceHash.get(word) + 1) : 1;
             occurrenceHash.put(word, count);
         }
         return occurrenceHash;
+    }
+
+    private static String removeNonLetterFromEnd(String string){
+        int indexToKeep = string.length();
+        char[] letters = string.toCharArray();
+        for(int j=string.length()-1; j >= 0; j--){
+            char letter = letters[j];
+            if(letter < 'a' || letter > 'z'){
+                indexToKeep = j;
+            }else {
+                break;
+            }
+        }
+        return string.substring(0, indexToKeep);
     }
 
 
