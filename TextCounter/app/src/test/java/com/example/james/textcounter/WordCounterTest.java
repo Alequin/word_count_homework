@@ -18,6 +18,11 @@ public class WordCounterTest {
     }
 
     @Test
+    public void countWordsWhenInputIsNull(){
+        assertEquals(0, WordCounter.count(null));
+    }
+
+    @Test
     public void countWordsWhenLengthZero(){
         assertEquals(0, WordCounter.count(""));
     }
