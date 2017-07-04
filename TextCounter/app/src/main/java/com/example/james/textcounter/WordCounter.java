@@ -1,7 +1,5 @@
 package com.example.james.textcounter;
 
-import android.util.Log;
-
 import java.util.HashMap;
 
 /**
@@ -47,19 +45,8 @@ public class WordCounter {
 
     public static String formatOccurrenceHash(HashMap<String, Integer> occurrenceHash) {
         String[] segments = buildSegmentsArray(occurrenceHash);
-
-        segments = sortOccurrenceSegmentsArray(segments);
-
-        String results = "";
-        final int length = segments.length;
-        for(int j=0; j < length; j++){
-            results += segments[j];
-            if(j < length-1){
-                results += ", ";
-            }
-        }
-
-        return results;
+        segments = sortSegmentsArray(segments);
+        return combineSegments(segments);
     }
 
     private static String[] buildSegmentsArray(HashMap<String, Integer> occurrenceHash){
@@ -76,7 +63,7 @@ public class WordCounter {
         return segments;
     }
 
-    private static String[] sortOccurrenceSegmentsArray(String[] segments){
+    private static String[] sortSegmentsArray(String[] segments){
         final int length = segments.length;
 
         boolean sorted = false;
@@ -105,5 +92,17 @@ public class WordCounter {
         String temp = array[index1];
         array[index1] = array[index2];
         array[index2] = temp;
+    }
+
+    private static String combineSegments(String[] segments){
+        String results = "";
+        final int length = segments.length;
+        for(int j=0; j < length; j++){
+            results += segments[j];
+            if(j < length-1){
+                results += ", ";
+            }
+        }
+        return results;
     }
 }
