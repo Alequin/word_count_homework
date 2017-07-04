@@ -44,4 +44,9 @@ public class WordCounter {
         }
         return string.substring(0, indexToKeep);
     }
+
+    public static String formatOccurenceHash(HashMap<String, Integer> occurrenceHash) {
+        final String[] keys = occurrenceHash.keySet().toArray(new String[1]);
+        final Integer[] values = occurrenceHash.values().toArray(new Integer[1]);
+    }
 }
