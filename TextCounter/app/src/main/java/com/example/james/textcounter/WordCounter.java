@@ -6,5 +6,7 @@ package com.example.james.textcounter;
 
 public class WordCounter {
 
-
+    public static int count(String phrase){
+        return phrase.split(" ").length;
+    }
 }

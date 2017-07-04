@@ -14,8 +14,7 @@ public class WordCounterTest {
     @Test
     public void countWords(){
         String words = "oh what a lovely day. oh what a lovely day";
-        WordCounter.count(words);
-        assertEquals(10, words);
+        assertEquals(10, WordCounter.count(words));
     }
 
 }
