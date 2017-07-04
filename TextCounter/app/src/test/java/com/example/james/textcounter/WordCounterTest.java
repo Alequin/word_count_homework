@@ -3,6 +3,8 @@ package com.example.james.textcounter;
 import org.junit.Test;
 import org.junit.Before;
 
+import java.util.HashMap;
+
 import static org.junit.Assert.*;
 
 /**
@@ -27,5 +29,15 @@ public class WordCounterTest {
         assertEquals(0, WordCounter.count(""));
     }
 
-
+    @Test
+    public void canCountOccuranceOfWords() {
+        String words = "one one two one two three one two three four";
+        //loved that and when dog said hi
+        HashMap<String, Integer> expected = new HashMap<>();
+        expected.put("one", 4);
+        expected.put("two", 3);
+        expected.put("three", 2);
+        expected.put("four", 1);
+        assert(expected.equals(WordCounter.getOccurrenceHash(words)));
+    }
 }
