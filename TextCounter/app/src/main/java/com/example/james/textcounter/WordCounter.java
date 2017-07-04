@@ -56,25 +56,37 @@ public class WordCounter {
             segments[j] = keys[j] + ": " + val;
         }
 
-
+        segments = sortOccurrenceSegmentsArray(segments);
     }
 
-    private String[] sortOccurrenceSegmentsArray(String[] segments){
+    private static String[] sortOccurrenceSegmentsArray(String[] segments){
+        final int length = segments.length;
 
         boolean sorted = false;
         while(!sorted){
-
+            sorted = true;
+            for(int j=1; j<length; j++){
+                final int segmentVal1 = getSegmentValue(segments[j-1]);
+                final int segmentVal2 = getSegmentValue(segments[j]);
+                if(segmentVal1 < segmentVal2){
+                    swapIndeces(segments, j-1, j);
+                    sorted = false;
+                }
+            }
         }
+        return segments;
     }
 
-    private int getSegmentValue(String segment){
+    private static int getSegmentValue(String segment){
         final int valueIndex = segment.length()-1;
         final char charValue = segment.charAt(valueIndex);
         String value = Character.toString(charValue);
         return Integer.parseInt(value);
     }
 
-    private String[] swapIndeces(String[] array, int index1, int index2){
-        
+    private static String[] swapIndeces(String[] array, int index1, int index2){
+        String temp = array[index1];
+        array[index1] = array[index2];
+        array[index2] = temp;
     }
 }
