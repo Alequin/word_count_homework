@@ -29,6 +29,8 @@ public class WordCounter {
         return occurrenceHash;
     }
 
+    
+
     private static String removeNonLetterFromEnd(String string){
         int indexToKeep = string.length();
         char[] letters = string.toCharArray();
