@@ -12,19 +12,20 @@ import static org.junit.Assert.*;
 public class WordCounterTest {
 
     @Test
-    public void countWords(){
+    public void canCountWords(){
         String words = "oh what a lovely day. oh what a lovely day";
         assertEquals(10, WordCounter.count(words));
     }
 
     @Test
-    public void countWordsWhenInputIsNull(){
+    public void canCountWordsWhenInputIsNull(){
         assertEquals(0, WordCounter.count(null));
     }
 
     @Test
-    public void countWordsWhenLengthZero(){
+    public void canCountWordsWhenLengthZero(){
         assertEquals(0, WordCounter.count(""));
     }
+
 
 }
