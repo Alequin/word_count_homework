@@ -29,7 +29,7 @@ public class WordCounterTest {
     }
 
     @Test
-    public void canCountOccuranceOfWords() {
+    public void canCountOccurrenceOfWords() {
         String words = "one one two one two three one two three four";
         //loved that and when dog said hi
         HashMap<String, Integer> expected = new HashMap<>();
@@ -37,6 +37,24 @@ public class WordCounterTest {
         expected.put("two", 3);
         expected.put("three", 2);
         expected.put("four", 1);
-        assert(expected.equals(WordCounter.getOccurrenceHash(words)));
+        assertEquals(expected.get("one"), WordCounter.getOccurrenceHash(words).get("one"));
+        assertEquals(expected.get("two"), WordCounter.getOccurrenceHash(words).get("two"));
+        assertEquals(expected.get("three"), WordCounter.getOccurrenceHash(words).get("three"));
+        assertEquals(expected.get("four"), WordCounter.getOccurrenceHash(words).get("four"));
+    }
+
+    @Test
+    public void canCountOccurrenceOfWordsWithExtraCharacters() {
+        String words = "one one. two one, two three one' two three four";
+        //loved that and when dog said hi
+        HashMap<String, Integer> expected = new HashMap<>();
+        expected.put("one", 4);
+        expected.put("two", 3);
+        expected.put("three", 2);
+        expected.put("four", 1);
+        assertEquals(expected.get("one"), WordCounter.getOccurrenceHash(words).get("one"));
+        assertEquals(expected.get("two"), WordCounter.getOccurrenceHash(words).get("two"));
+        assertEquals(expected.get("three"), WordCounter.getOccurrenceHash(words).get("three"));
+        assertEquals(expected.get("four"), WordCounter.getOccurrenceHash(words).get("four"));
     }
 }

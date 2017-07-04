@@ -1,5 +1,7 @@
 package com.example.james.textcounter;
 
+import android.util.Log;
+
 import java.util.HashMap;
 
 /**
@@ -24,4 +26,6 @@ public class WordCounter {
         }
         return occurrenceHash;
     }
+
+
 }
